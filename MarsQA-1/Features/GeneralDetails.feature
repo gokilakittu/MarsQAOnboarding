@@ -1,7 +1,7 @@
 ﻿Feature: GeneralDetails Feature
 
 As a seller of the mars
-I would like to add, edit general details in the profile
+I would like to add, edit general details like name, availability,decription,hours and earn target in the profile
 So that i could look into my details in the profile page successfully
 
 @GeneralDetails
