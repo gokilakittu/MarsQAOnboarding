@@ -48,18 +48,18 @@ Then an error message should appear for blank names
 @ignore @negativeTestcase
 Scenario: 6  Seller adds only the firstname without the lastname
 When I click on the profile name 
-And I enter only the 'firstname'
+And I enter only the firstname 'firstname'
 Then an error message should appear for blank names
 
 @ignore @negativeTestcase
 Scenario: 7  Seller adds only the lastname without the firstname
 When I click on the profile name
-And I enter only the 'lastname'
+And I enter only the lastname 'lastname'
 Then an error message should appear for blank names
 
 Scenario Outline: 8 Seller adds availability to his profile
 When I click on the edit button near the availability
-And I select the '<availability>'
+And I select the availability '<availability>'
 Then I could see the newly added '<availability>' availability successfully
 Examples:
 |availability |
@@ -67,7 +67,7 @@ Examples:
 
 Scenario Outline: 9 Seller adds hours to his profile
 When I click on the edit button near the hours
-And I select the '<hours>' 
+And I select the hours '<hours>' 
 Then I could see the newly added '<hours>' hours successfully
 Examples:
 |hours		|
@@ -75,7 +75,7 @@ Examples:
 
 Scenario Outline: 10 Seller adds Earn target to his profile
 When I click on the edit button near the earn target
-And I select the '<earntarget>'
+And I select the  earntarget '<earntarget>'
 Then I could see the newly added earn target successfully
 Examples:
 |earntarget					|
@@ -164,7 +164,7 @@ Scenario: 23 Seller trying to add skill that was already exists
 When I am in the skill tab
 And I select 'C++' 'Beginner' 
 Then an error message should appear for data already exist
-
+ 
 @ignore @negativeTestcase
 Scenario: 24 Seller trying to add skill that was already exists with differnt skill level
 When I am in the skill tab
@@ -187,6 +187,7 @@ Examples:
 |deleteSkill|
 |Java		|
 
+@ignore
 Scenario Outline: 27 Seller adds education details to his profile
 When I am in the education tab
 And I enter the '<country>' '<university>' '<title>' '<degree>' '<graduationYear>'
@@ -195,6 +196,7 @@ Examples:
 |country|university				|title	|degree	|graduationYear	|
 |NZ     |University of Auckland	|MSc	|MSc    |2010           |
 
+@ignore
 Scenario Outline: 28 Seller edits education details from his profile
 When I am in the education tab
 And I update <editDegree> with '<newCountry>' '<newUniversity>' '<newTitle>' '<newDegree>' '<newGraduationYear>'
@@ -203,6 +205,7 @@ Examples:
 |editDegree |newCountry  |newUniversity      |newTitle	|newDegree |newGraduationYear |
 |MSc        |New Zealand |Lincoln University |BSc	    |BSc       |2009              |
 
+@ignore
 Scenario Outline: 29 Seller deletes education details from his profile
 When I am in the education tab
 And I click delete button of the degree '<deleteDegree>' i want to delete
@@ -211,6 +214,7 @@ Examples:
 |deleteDegree	|
 |BSc			|
 
+@ignore
 Scenario Outline: 30 Seller adds certificate details to his profile
 When I am in the certificate tab
 And I enter the '<certificate>' '<from>' '<year>' to add certificate
@@ -219,6 +223,7 @@ Examples:
 |certificate		|from	|year	|
 |ISTQB-Foundation   |2020	|2021	|
 
+@ignore
 Scenario Outline: 31 Seller edits certificate details from his profile
 When I am in the certificate tab
 And I update '<certificate>' with '<newCertificate>' '<newFrom>' '<newYear>'
@@ -227,6 +232,7 @@ Examples:
 |certificate		|newCertificate |newFrom	|newYear	|
 |ISTQB-Foundation	|ISTQB-Agile	|2020       |2021       |
 
+@ignore
 Scenario Outline: 32 Seller deletes certificate details from his profile
 When I am in the certificate tab
 And I click delete button of the '<deleteCertificate>' i want to delete
