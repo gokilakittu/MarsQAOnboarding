@@ -129,7 +129,7 @@ testRunner.Then(string.Format("I could see the newly added \'{0}\' successfully"
         [NUnit.Framework.DescriptionAttribute("2 Seller adds Description with more characters to his profile")]
         [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.CategoryAttribute("negativeTestcase")]
-        [NUnit.Framework.TestCaseAttribute("Something about me which has more than 599 characters", null)]
+        [NUnit.Framework.TestCaseAttribute(@"When deciding where to put some common context, the key question should be “is this important for the purpose of the scenario, or just for the process of testing?”. This is the same question we explored in the challenge How to fix a chain of dependent scenarios? (see the section “Write set-up in a declarative way”).Tags and hooks are best to use for sharing context that’s not really important for the purpose of the test, but it may be important for how the test gets executed. For example, the actual username for the logged in user is not important for ratings, we just need to have a user and", null)]
         public void _2SellerAddsDescriptionWithMoreCharactersToHisProfile(string descriptionWithMoreCharacters, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -236,7 +236,7 @@ testRunner.When("I click on the profile name", ((string)(null)), ((TechTalk.Spec
 testRunner.And(string.Format("I edit my \'{0}\' and \'{1}\'", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 37
-testRunner.Then("I could see the updated names successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("I could see the updated \'{0}\' and \'{1}\' successfully", firstName, lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -452,7 +452,7 @@ testRunner.When("I click on the edit button near the earn target", ((string)(nul
 testRunner.And(string.Format("I select the  earntarget \'{0}\'", earntarget), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 79
-testRunner.Then("I could see the newly added earn target successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("I could see the newly added \'{0}\' earn target successfully", earntarget), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -461,6 +461,11 @@ testRunner.Then("I could see the newly added earn target successfully", ((string
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("11 Add language to the profile")]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Native/Bilingual", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("Hindi", "Conversational", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Conversational", null)]
+        [NUnit.Framework.TestCaseAttribute("Marathi", "Basic", null)]
+        [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", null)]
         public void _11AddLanguageToTheProfile(string language, string languageLevel, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -488,7 +493,7 @@ testRunner.When("I click add new button in language tab", ((string)(null)), ((Te
 testRunner.And(string.Format("I enter the \'{0}\' \'{1}\' to add language", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 87
-testRunner.Then(string.Format("The new \'{0}\'\'{1}\' was successfully created", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The new language \'{0}\'\'{1}\' was successfully created", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -505,7 +510,7 @@ testRunner.Then(string.Format("The new \'{0}\'\'{1}\' was successfully created",
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("12 Seller trying to add empty language to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 93
+#line 98
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -518,13 +523,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 94
+#line 99
 testRunner.When("I click add new button in language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 95
+#line 100
 testRunner.And("I click add button to add language", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 96
+#line 101
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -542,7 +547,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("13 Seller trying to add just language level without language to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 99
+#line 104
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -555,13 +560,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 100
+#line 105
 testRunner.When("I click add new button in language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 101
+#line 106
 testRunner.And("I select \'Native/Bilingual\' in the language level", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 102
+#line 107
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -579,7 +584,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("14 Seller trying to add just language without language level to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 105
+#line 110
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -592,13 +597,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 106
+#line 111
 testRunner.When("I click add new button in language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 107
+#line 112
 testRunner.And("I select \'French\' in the language", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 108
+#line 113
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -616,7 +621,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("15 Seller trying to add language that was already exists", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 111
+#line 116
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -629,13 +634,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 112
+#line 117
 testRunner.When("I click add new button in language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 113
+#line 118
 testRunner.And("I select \'Tamil\' \'Native/Bilingual\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 114
+#line 119
 testRunner.Then("an error message should appear for data already exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -655,7 +660,7 @@ testRunner.Then("an error message should appear for data already exists", ((stri
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("16 Seller trying to add language that was already exists with differnt language l" +
                     "evel", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 117
+#line 122
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -668,13 +673,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 118
+#line 123
 testRunner.When("I click add new button in language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 119
+#line 124
 testRunner.And("I select \'Tamil\' \'Fluent\' to add the language", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 120
+#line 125
 testRunner.Then("an error message should appear for duplicate values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -692,7 +697,7 @@ testRunner.Then("an error message should appear for duplicate values", ((string)
             argumentsOfScenario.Add("editLanguage", editLanguage);
             argumentsOfScenario.Add("editLanguageLevel", editLanguageLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("17 Edit language from the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 122
+#line 127
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -705,10 +710,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 123
+#line 128
 testRunner.When(string.Format("I edit \'{0}\' with \'{1}\' \'{2}\' to update language", languageToBeEdited, editLanguage, editLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 124
+#line 129
 testRunner.Then(string.Format("The language was successfully updated with \'{0}\'\'{1}\'", editLanguage, editLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -724,7 +729,7 @@ testRunner.Then(string.Format("The language was successfully updated with \'{0}\
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("deleteLanguage", deleteLanguage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("18 Delete language from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 129
+#line 134
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -737,10 +742,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 130
+#line 135
 testRunner.When(string.Format("I click delete button of the \'{0}\' language i want to delete", deleteLanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 131
+#line 136
 testRunner.Then(string.Format("The \'{0}\' language was deleted successfully", deleteLanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -749,7 +754,7 @@ testRunner.Then(string.Format("The \'{0}\' language was deleted successfully", d
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("19 Seller adds skill details to his profile")]
-        [NUnit.Framework.TestCaseAttribute("C++", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("JMeter", "Beginner", null)]
         public void _19SellerAddsSkillDetailsToHisProfile(string skill, string skillLevel, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -757,7 +762,7 @@ testRunner.Then(string.Format("The \'{0}\' language was deleted successfully", d
             argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("skillLevel", skillLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("19 Seller adds skill details to his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 136
+#line 141
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -770,13 +775,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 137
+#line 142
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 138
+#line 143
 testRunner.And(string.Format("I enter the \'{0}\' \'{1}\' to add the skill", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 139
+#line 144
 testRunner.Then(string.Format("The new \'{0}\'\'{1}\' was successfully created", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -794,7 +799,7 @@ testRunner.Then(string.Format("The new \'{0}\'\'{1}\' was successfully created",
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("20 Seller trying to add empty skill to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 145
+#line 150
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -807,13 +812,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 146
+#line 151
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 147
+#line 152
 testRunner.And("I click add button to add skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 148
+#line 153
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -831,7 +836,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("21 Seller trying to add just skill level without skill to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 151
+#line 156
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -844,13 +849,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 152
+#line 157
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 153
+#line 158
 testRunner.And("I select \'Beginner\' in the skill level", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 154
+#line 159
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -868,7 +873,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("22 Seller trying to add just skill without skill level to the profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 157
+#line 162
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -881,13 +886,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 158
+#line 163
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 159
+#line 164
 testRunner.And("I select \'Postman\' in the skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 160
+#line 165
 testRunner.Then("an error message should appear for empty values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -905,7 +910,7 @@ testRunner.Then("an error message should appear for empty values", ((string)(nul
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("23 Seller trying to add skill that was already exists", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 163
+#line 168
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -918,13 +923,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 164
+#line 169
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 165
+#line 170
 testRunner.And("I select \'C++\' \'Beginner\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 166
+#line 171
 testRunner.Then("an error message should appear for data already exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -942,43 +947,6 @@ testRunner.Then("an error message should appear for data already exist", ((strin
                     "negativeTestcase"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("24 Seller trying to add skill that was already exists with differnt skill level", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 169
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line hidden
-#line 170
-testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 171
-testRunner.And("I select \'C++\' \'Intermediate\' to add the skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 172
-testRunner.Then("an error message should appear for duplicate values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("25 Seller edits skill details from his profile")]
-        [NUnit.Framework.TestCaseAttribute("JMeter", "Java", "Beginner", null)]
-        public void _25SellerEditsSkillDetailsFromHisProfile(string skillToBeEdited, string editSkill, string editSkillLevel, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("skillToBeEdited", skillToBeEdited);
-            argumentsOfScenario.Add("editSkill", editSkill);
-            argumentsOfScenario.Add("editSkillLevel", editSkillLevel);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("25 Seller edits skill details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 174
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -996,9 +964,46 @@ this.FeatureBackground();
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 176
-testRunner.And(string.Format("I update \'{0}\' with \'{1}\' \'{2}\'", skillToBeEdited, editSkill, editSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("I select \'C++\' \'Intermediate\' to add the skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 177
+testRunner.Then("an error message should appear for duplicate values", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("25 Seller edits skill details from his profile")]
+        [NUnit.Framework.TestCaseAttribute("JMeter", "Java", "Beginner", null)]
+        public void _25SellerEditsSkillDetailsFromHisProfile(string skillToBeEdited, string editSkill, string editSkillLevel, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("skillToBeEdited", skillToBeEdited);
+            argumentsOfScenario.Add("editSkill", editSkill);
+            argumentsOfScenario.Add("editSkillLevel", editSkillLevel);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("25 Seller edits skill details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 179
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 180
+testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 181
+testRunner.And(string.Format("I update \'{0}\' with \'{1}\' \'{2}\' to update skill", skillToBeEdited, editSkill, editSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 182
 testRunner.Then(string.Format("The skill was successfully updated with \'{0}\'\'{1}\'", editSkill, editSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1014,7 +1019,7 @@ testRunner.Then(string.Format("The skill was successfully updated with \'{0}\'\'
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("deleteSkill", deleteSkill);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("26 Seller deletes skill details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 182
+#line 187
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1027,13 +1032,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 183
+#line 188
 testRunner.When("I am in the skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 184
+#line 189
 testRunner.And(string.Format("I click delete button of the skill \'{0}\' i want to delete", deleteSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 185
+#line 190
 testRunner.Then(string.Format("the \'{0}\' skill was deleted successfully", deleteSkill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1042,10 +1047,17 @@ testRunner.Then(string.Format("the \'{0}\' skill was deleted successfully", dele
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("27 Seller adds education details to his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("NZ", "University of Auckland", "MSc", "MSc", "2010", null)]
         public void _27SellerAddsEducationDetailsToHisProfile(string country, string university, string title, string degree, string graduationYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("country", country);
             argumentsOfScenario.Add("university", university);
@@ -1053,7 +1065,7 @@ testRunner.Then(string.Format("the \'{0}\' skill was deleted successfully", dele
             argumentsOfScenario.Add("degree", degree);
             argumentsOfScenario.Add("graduationYear", graduationYear);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("27 Seller adds education details to his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 190
+#line 196
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1066,13 +1078,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 191
+#line 197
 testRunner.When("I am in the education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 192
+#line 198
 testRunner.And(string.Format("I enter the \'{0}\' \'{1}\' \'{2}\' \'{3}\' \'{4}\'", country, university, title, degree, graduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 193
+#line 199
 testRunner.Then("The new Education was added successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1081,10 +1093,17 @@ testRunner.Then("The new Education was added successfully", ((string)(null)), ((
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("28 Seller edits education details from his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("MSc", "New Zealand", "Lincoln University", "BSc", "BSc", "2009", null)]
         public void _28SellerEditsEducationDetailsFromHisProfile(string editDegree, string newCountry, string newUniversity, string newTitle, string newDegree, string newGraduationYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("editDegree", editDegree);
             argumentsOfScenario.Add("newCountry", newCountry);
@@ -1093,7 +1112,7 @@ testRunner.Then("The new Education was added successfully", ((string)(null)), ((
             argumentsOfScenario.Add("newDegree", newDegree);
             argumentsOfScenario.Add("newGraduationYear", newGraduationYear);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("28 Seller edits education details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 198
+#line 205
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1106,13 +1125,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 199
+#line 206
 testRunner.When("I am in the education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 200
-testRunner.And(string.Format("I update {0} with \'{1}\' \'{2}\' \'{3}\' \'{4}\' \'{5}\'", editDegree, newCountry, newUniversity, newTitle, newDegree, newGraduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 207
+testRunner.And(string.Format("I update \'editDegree>\' with \'{0}\' \'{1}\' \'{2}\' \'{3}\' \'{4}\'", newCountry, newUniversity, newTitle, newDegree, newGraduationYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 201
+#line 208
 testRunner.Then("The education was successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1121,50 +1140,20 @@ testRunner.Then("The education was successfully updated", ((string)(null)), ((Te
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("29 Seller deletes education details from his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("BSc", null)]
         public void _29SellerDeletesEducationDetailsFromHisProfile(string deleteDegree, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("deleteDegree", deleteDegree);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("29 Seller deletes education details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 206
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 7
-this.FeatureBackground();
-#line hidden
-#line 207
-testRunner.When("I am in the education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 208
-testRunner.And(string.Format("I click delete button of the degree \'{0}\' i want to delete", deleteDegree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 209
-testRunner.Then("The  education was deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("30 Seller adds certificate details to his profile")]
-        [NUnit.Framework.TestCaseAttribute("ISTQB-Foundation", "2020", "2021", null)]
-        public void _30SellerAddsCertificateDetailsToHisProfile(string certificate, string from, string year, string[] exampleTags)
-        {
-            string[] tagsOfScenario = exampleTags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("certificate", certificate);
-            argumentsOfScenario.Add("from", from);
-            argumentsOfScenario.Add("year", year);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("30 Seller adds certificate details to his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 214
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -1179,12 +1168,56 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 215
-testRunner.When("I am in the certificate tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I am in the education tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 216
-testRunner.And(string.Format("I enter the \'{0}\' \'{1}\' \'{2}\' to add certificate", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("I click delete button of the degree \'{0}\' i want to delete", deleteDegree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 217
+testRunner.Then("The  education was deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("30 Seller adds certificate details to his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        [NUnit.Framework.TestCaseAttribute("ISTQB-Foundation", "2020", "2021", null)]
+        public void _30SellerAddsCertificateDetailsToHisProfile(string certificate, string from, string year, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("certificate", certificate);
+            argumentsOfScenario.Add("from", from);
+            argumentsOfScenario.Add("year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("30 Seller adds certificate details to his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 223
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 224
+testRunner.When("I am in the certificate tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 225
+testRunner.And(string.Format("I enter the \'{0}\' \'{1}\' \'{2}\' to add certificate", certificate, from, year), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 226
 testRunner.Then("The new certificate was added successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1193,17 +1226,24 @@ testRunner.Then("The new certificate was added successfully", ((string)(null)), 
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("31 Seller edits certificate details from his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("ISTQB-Foundation", "ISTQB-Agile", "2020", "2021", null)]
         public void _31SellerEditsCertificateDetailsFromHisProfile(string certificate, string newCertificate, string newFrom, string newYear, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("certificate", certificate);
             argumentsOfScenario.Add("newCertificate", newCertificate);
             argumentsOfScenario.Add("newFrom", newFrom);
             argumentsOfScenario.Add("newYear", newYear);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("31 Seller edits certificate details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 222
+#line 232
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1216,13 +1256,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 223
+#line 233
 testRunner.When("I am in the certificate tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 224
+#line 234
 testRunner.And(string.Format("I update \'{0}\' with \'{1}\' \'{2}\' \'{3}\'", certificate, newCertificate, newFrom, newYear), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 225
+#line 235
 testRunner.Then("The certificate was successfully updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -1231,14 +1271,21 @@ testRunner.Then("The certificate was successfully updated", ((string)(null)), ((
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("32 Seller deletes certificate details from his profile")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("ISTQB-Agile", null)]
         public void _32SellerDeletesCertificateDetailsFromHisProfile(string deleteCertificate, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("deleteCertificate", deleteCertificate);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("32 Seller deletes certificate details from his profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 230
+#line 241
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -1251,13 +1298,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-#line 231
+#line 242
 testRunner.When("I am in the certificate tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 232
+#line 243
 testRunner.And(string.Format("I click delete button of the \'{0}\' i want to delete", deleteCertificate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 233
+#line 244
 testRunner.Then("The certificate was deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

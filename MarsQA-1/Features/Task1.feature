@@ -14,7 +14,7 @@ And I enter the '<description>'
 Then I could see the newly added '<description>' successfully
 Examples:
 |description		|
-|Something about me |
+|Something about me	|
 
 @ignore @negativeTestcase
 Scenario Outline: 2 Seller adds Description with more characters to his profile
@@ -23,7 +23,7 @@ And I enter the '<descriptionWithMoreCharacters>'
 Then I could see the partial text of the description with showing any error message
 Examples:
 |descriptionWithMoreCharacters							|
-|Something about me which has more than 599 characters	|
+|When deciding where to put some common context, the key question should be “is this important for the purpose of the scenario, or just for the process of testing?”. This is the same question we explored in the challenge How to fix a chain of dependent scenarios? (see the section “Write set-up in a declarative way”).Tags and hooks are best to use for sharing context that’s not really important for the purpose of the test, but it may be important for how the test gets executed. For example, the actual username for the logged in user is not important for ratings, we just need to have a user and|
 
 @ignore @negativeTestcase
 Scenario: 3 Seller saves description with empty values
@@ -34,7 +34,7 @@ Then an error message should appear for blank description
 Scenario Outline: 4 Seller edits the First name and the Last Name to his profile
 When I click on the profile name 
 And I edit my '<firstName>' and '<lastName>'
-Then I could see the updated names successfully
+Then I could see the updated '<firstName>' and '<lastName>' successfully
 Examples:
 |firstName |lastName |
 |fname     |lname	 |  
@@ -76,7 +76,7 @@ Examples:
 Scenario Outline: 10 Seller adds Earn target to his profile
 When I click on the edit button near the earn target
 And I select the  earntarget '<earntarget>'
-Then I could see the newly added earn target successfully
+Then I could see the newly added '<earntarget>' earn target successfully
 Examples:
 |earntarget					|
 |More than $1000 per month  |
@@ -84,10 +84,15 @@ Examples:
 Scenario Outline: 11 Add language to the profile
 When I click add new button in language tab
 And I enter the '<language>' '<languageLevel>' to add language
-Then The new '<language>''<languageLevel>' was successfully created
-Examples:
-|language	|languageLevel		|
-|Tamil		|Native/Bilingual	|
+Then The new language '<language>''<languageLevel>' was successfully created
+ Examples:
+| language | languageLevel    |
+| Tamil    | Native/Bilingual |
+| English  | Fluent           |
+| Hindi    | Conversational   |
+| English  | Conversational   |
+| Marathi  | Basic            |
+| Urudu    | Basic            |
 
 @ignore @negativeTestcase
 Scenario: 12 Seller trying to add empty language to the profile
@@ -139,7 +144,7 @@ And I enter the '<skill>' '<skillLevel>' to add the skill
 Then The new '<skill>''<skillLevel>' was successfully created
 Examples:
 |skill	|skillLevel	|
-|C++	|Beginner	|
+|JMeter	|Beginner	|
 
 @ignore @negativeTestcase
 Scenario: 20 Seller trying to add empty skill to the profile
@@ -173,7 +178,7 @@ Then an error message should appear for duplicate values
 
 Scenario Outline: 25 Seller edits skill details from his profile
 When I am in the skill tab
-And I update '<skillToBeEdited>' with '<editSkill>' '<editSkillLevel>'
+And I update '<skillToBeEdited>' with '<editSkill>' '<editSkillLevel>' to update skill
 Then The skill was successfully updated with '<editSkill>''<editSkillLevel>'
 Examples:
 |skillToBeEdited	|editSkill	|editSkillLevel	|
@@ -199,7 +204,7 @@ Examples:
 @ignore
 Scenario Outline: 28 Seller edits education details from his profile
 When I am in the education tab
-And I update <editDegree> with '<newCountry>' '<newUniversity>' '<newTitle>' '<newDegree>' '<newGraduationYear>'
+And I update 'editDegree>' with '<newCountry>' '<newUniversity>' '<newTitle>' '<newDegree>' '<newGraduationYear>'
 Then The education was successfully updated
 Examples:
 |editDegree |newCountry  |newUniversity      |newTitle	|newDegree |newGraduationYear |
