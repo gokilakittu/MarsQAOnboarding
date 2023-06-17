@@ -8,7 +8,6 @@ namespace MarsQA_1.Pages
         public void SignInSteps()
         {
             Driver.NavigateUrl();
-            
         }
         public void LoginSteps()
         {

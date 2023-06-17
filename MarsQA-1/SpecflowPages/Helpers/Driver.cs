@@ -14,7 +14,6 @@ namespace MarsQA_1.Helpers
     public class Driver
     {
         //Initialize the browser
-        
         public static IWebDriver driver;
 
         public void Initialize()
