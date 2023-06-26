@@ -1,13 +1,5 @@
 ﻿using MarsQA_1.Helpers;
-using MarsQA_1.Pages;
-//using RelevantCodes.ExtentReports;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using TechTalk.SpecFlow;
-using static MarsQA_1.Helpers.CommonMethods;
 
 namespace MarsQA_1.Utils
 {

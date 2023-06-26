@@ -1,152 +1,167 @@
 ﻿using MarsQA_1.Helpers;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using RazorEngine;
 using System;
 using System.Collections.Generic;
 
 
 namespace MarsQA_1.SpecflowPages.Pages
 {
-    public class ProfilePage
+    public class ProfilePage : Driver
     {
         public void ClickEditDescription()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/h3/span/i")).Click();
         }
         
         public void EnterDescription(String description)
         {
-            Driver.driver.FindElement(By.Name("value")).Clear();
-            Driver.driver.FindElement(By.Name("value")).SendKeys(description);
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/button")).Click();
-            Driver.TurnOnWait();
+            driver.FindElement(By.Name("value")).Clear();
+            driver.FindElement(By.Name("value")).SendKeys(description);
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/form/div/div/div[2]/button")).Click();
+            TurnOnWait();
         }
                
         public bool ValidateDescription(String description)
         {
-            bool ValidateAvailability = false;
-            Driver.TurnOnWait();
-            IWebElement actualDescription = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span"));
+            bool ValidateAvailability ;
+            TurnOnWait();
+            IWebElement actualDescription = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/div/div/div/span"));
             if (actualDescription.Text == description)
             {
                 ValidateAvailability = true;
+            }
+            else
+            {
+                ValidateAvailability = false;
             }
             return ValidateAvailability;
         }
         
         public void ClickEditName()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]/i")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]/i")).Click();
         }
         
         public void EnterNames(string firstname, string lastname)
         {
-            Driver.TurnOnWait();
-            Driver.driver.FindElement(By.Name("firstName")).Clear();
-            Driver.driver.FindElement(By.Name("firstName")).SendKeys(firstname);
-            Driver.driver.FindElement(By.Name("lastName")).Clear();
-            Driver.driver.FindElement(By.Name("lastName")).SendKeys(lastname);
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/button")).Click();
+            TurnOnWait();
+            driver.FindElement(By.Name("firstName")).Clear();
+            driver.FindElement(By.Name("firstName")).SendKeys(firstname);
+            driver.FindElement(By.Name("lastName")).Clear();
+            driver.FindElement(By.Name("lastName")).SendKeys(lastname);
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[2]/div/div[2]/button")).Click();
 
         }
                 
         public bool ValidateName(string firstname, string lastname)
         {
-            bool ValidateName = false;
-            Driver.TurnOnWait();
-            IWebElement actualFullName = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]"));
+            bool ValidateName;
+            TurnOnWait();
+            IWebElement actualFullName = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[2]/div/div/div[1]"));
             String fullName = firstname +" "+ lastname;
             if (actualFullName.Text == fullName)
             {
                 ValidateName = true;
+            }
+            else
+            {
+                ValidateName = false;
             }
             return ValidateName;
         }
        
         public void ClickEditAvailability()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/i")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span/i")).Click();
         }
       
         public void SelectAvailability(string availability)
         {
-            SelectElement SelectAvailability = new SelectElement(Driver.driver.FindElement(By.Name("availabiltyType")));
+            SelectElement SelectAvailability = new SelectElement(driver.FindElement(By.Name("availabiltyType")));
             SelectAvailability.SelectByText(availability);
         }
       
         public bool ValidateAvailability(string availability)
         {
-            bool ValidateAvailability = false;
-            Driver.TurnOnWait();
-            IWebElement actualAvailability = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span"));
+            bool ValidateAvailability;
+            TurnOnWait();
+            IWebElement actualAvailability = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/span"));
             if (actualAvailability.Text == availability)
             {
-                ValidateAvailability = true;
+                 ValidateAvailability = true;
+            }
+            else
+            {
+                ValidateAvailability = false;
             }
             return ValidateAvailability;
         }
       
         public void ClickEditHours()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span/i")).Click();
         }
        
         public void SelectHours(string hours)
         {
-            SelectElement SelectHours = new SelectElement(Driver.driver.FindElement(By.Name("availabiltyHour")));
+            SelectElement SelectHours = new SelectElement(driver.FindElement(By.Name("availabiltyHour")));
             SelectHours.SelectByText(hours);
         }
       
         public bool ValidateHours(string hours)
         {
-            bool ValidateHours = false;
-            Driver.TurnOnWait();
-            IWebElement actualHours = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span"));
+            bool ValidateHours;
+            TurnOnWait();
+            IWebElement actualHours = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[3]/div/span"));
             if (actualHours.Text == hours)
             {
-                ValidateHours = true;
+                 ValidateHours = true;
+            }
+            else
+            {
+                ValidateHours = false;
             }
             return ValidateHours;
         }
 
         public void ClickEditEarnTarget()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span/i")).Click();
         }
 
         public void SelectEarnTarget(string earnTarget)
         {
-            SelectElement SelectEarnTarget = new SelectElement(Driver.driver.FindElement(By.Name("availabiltyTarget")));
+            SelectElement SelectEarnTarget = new SelectElement(driver.FindElement(By.Name("availabiltyTarget")));
             SelectEarnTarget.SelectByText(earnTarget);
         }
 
         public bool ValidateEarnTarget(string earnTarget)
         {
-            bool ValidateEarnTarget = false;
-            Driver.TurnOnWait();
-            IWebElement actualEarnTarget = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span"));
+            bool ValidateEarnTarget;
+            TurnOnWait();
+            IWebElement actualEarnTarget = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[2]/div/div/div/div/div/div[3]/div/div[4]/div/span"));
             if (actualEarnTarget.Text == earnTarget)
             {
                 ValidateEarnTarget = true;
             }
+            else
+            {
+                ValidateEarnTarget = false;
+            }
             return ValidateEarnTarget;
         }
 
-        public bool IsDisplayed()
+        /*if the table has more than 4 language the add button will be hiden*/
+        public bool ClickAddNewLanguage()
         {
             Boolean flag = false;
             try
             {
-                Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
-                Boolean isElementPresent = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Displayed;
-                if (isElementPresent)
+                Boolean isAddButtonPresent = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Displayed;
+                if (isAddButtonPresent)
                 {
                     flag = true;
-                }
-                else
-                {
-                    flag = false;
                 }
             }
             catch (Exception ex)
@@ -161,42 +176,46 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public void AddNewLanguageButton()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
         }
 
         public void EnterNewLanguage(String language, String level)
         {
-            Driver.TurnOnWait();
-
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
-
+            TurnOnWait();
+            IWebElement languageTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
             List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
-
             if (allLanguageRow.Count < 4)
             {
-                IWebElement newLanguage = Driver.driver.FindElement(By.Name("name"));
-                newLanguage.SendKeys(language);
-
-                SelectElement SelectLanguage = new SelectElement(Driver.driver.FindElement(By.Name("level")));
-                SelectLanguage.SelectByText(level);
-                Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]")).Click();
-            }
+                EnterValuesLanguage(language,level);
+                driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]")).Click();
+             }
         }
-       
+
+        public void EnterValuesLanguage(String language, String level)
+        {
+            IWebElement newLanguage = driver.FindElement(By.Name("name"));
+            newLanguage.Clear();
+            newLanguage.SendKeys(language);
+
+            SelectElement SelectLanguage = new SelectElement(driver.FindElement(By.Name("level")));
+            Driver.TurnOnWait();
+            SelectLanguage.SelectByText(level);
+        }
+
         public (String, String) ValidateNewLanguage(String validateLanguage, String validateLevel)
         {
-            Driver.TurnOnWait();
+            TurnOnWait();
             String newLangaugeMessage = "";
             String newLangaugeStatus = "N";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
+            IWebElement languageTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
             List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
             
-            IWebElement LastTableLanguage = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));       
-            IWebElement LastTableLanguageLevel = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
+            IWebElement LastTableLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));       
+            IWebElement LastTableLanguageLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
 
-            IWebElement addButtonLanguage = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+            IWebElement addButtonLanguage = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
             Boolean isElementPresent = addButtonLanguage.Displayed;
-            Driver.TurnOnWait();
+            TurnOnWait();
             if (isElementPresent)
             {
                 if ((LastTableLanguage.Text == validateLanguage) && (LastTableLanguageLevel.Text == validateLevel))
@@ -206,11 +225,9 @@ namespace MarsQA_1.SpecflowPages.Pages
                 }
                 else
                 {
-                    newLangaugeStatus = "N";
                     foreach (var row in allLanguageRow)
                     {
                         var resultCols = row.FindElements(By.TagName("td"));
-
                         if ((resultCols[0].Text == validateLanguage) && (resultCols[1].Text == validateLevel))
                         {
                             newLangaugeMessage = "Language already exist in the list";
@@ -218,18 +235,17 @@ namespace MarsQA_1.SpecflowPages.Pages
                         }
                         else if ((resultCols[0].Text == validateLanguage) && (resultCols[1].Text != validateLevel))
                         {
-                            newLangaugeMessage = "Duplicate data";
+                            newLangaugeMessage = "Language already present with different level";
                             break;
                         }
                         else {
-                            newLangaugeMessage = "Undefined error";
+                            newLangaugeMessage = "Language was not added with undefined error";
                         }
                     }
                 }
             }
             else
             {
-                newLangaugeStatus = "N";
                 newLangaugeMessage = "List has already four language.";
             }
             return (InsertStatus: newLangaugeStatus, InsertMessage: newLangaugeMessage);
@@ -237,69 +253,22 @@ namespace MarsQA_1.SpecflowPages.Pages
                        
         public void EnterEditLanguage(String languageToBeEdited, String editLanguage, String editLanguageLevel)
         {
-            IWebElement editButton = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
+            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
             editButton.Click();
-            /*String editStatus = "";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
-            List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
-            foreach (var row in allLanguageRow)
-            {
-                var resultCols = row.FindElements(By.TagName("td"));
-
-                if (resultCols[0].Text == editLanguage)
-                {
-                    List<IWebElement> allIconsRow = new List<IWebElement>(row.FindElements(By.TagName("i")));
-                    foreach (var icon in allIconsRow)
-                    {
-                        if (icon.GetAttribute("class") == "outline write icon")
-                        {
-                            Console.WriteLine(icon.GetAttribute("class"));
-                            try
-                            {
-                                icon.Click();
-                                editStatus = "";
-                            }
-                            catch (StaleElementReferenceException e)
-                            {
-                                Console.WriteLine("StaleElementReferenceException " +e);
-                            }
-
-                        }
-                        else
-                        {
-                            editStatus = "Undefined Error";
-                        }
-                    }
-                }
-                else
-                {
-                    editStatus = "The language intented to edit is not in the list";
-                }
-            }*/
-
-            IWebElement newLanguage = Driver.driver.FindElement(By.Name("name"));
-            newLanguage.Clear();
-            newLanguage.SendKeys(editLanguage);
-
-            SelectElement SelectLanguage = new SelectElement(Driver.driver.FindElement(By.Name("level")));
-            SelectLanguage.SelectByText(editLanguageLevel);
-            Driver.TurnOnWait();
-            Driver.driver.FindElement(By.XPath("//input[contains(@class,'ui teal button')]")).Click();
-
+            EnterValuesLanguage(editLanguage, editLanguageLevel);
+            driver.FindElement(By.XPath("//input[contains(@class,'ui teal button')]")).Click();
         }
         
         public (String,String) ValidateUpdatedLanguage(String updatedLanguage, String updatedLanguageLevel)
         {
-
-            Driver.TurnOnWait();
+            TurnOnWait();
             String editLangaugeMessage = "";
             String editLangaugeStatus = "N";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
+            IWebElement languageTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
             List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
             
             foreach (var row in allLanguageRow)
             {
-
                 var resultCols = row.FindElements(By.TagName("td"));
                 if (resultCols[0].Text == updatedLanguage)
                 {
@@ -309,7 +278,6 @@ namespace MarsQA_1.SpecflowPages.Pages
                 }
                 else
                 {
-                    editLangaugeStatus = "N";
                     editLangaugeMessage = "Language Updation failed";
                 }
             }
@@ -318,47 +286,18 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public String DeleteLanguage(String LanguageToDelete)
         {
-            IWebElement deleteButton = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
-            deleteButton.Click();
-
+            TurnOnWait();
             String deleteStatus = "";
-           /* IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
-            List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
-            foreach (var row in allLanguageRow)
-            {
-                var resultCols = row.FindElements(By.TagName("td"));
-                Driver.TurnOnWait();
-
-                if (resultCols[0].Text == LanguageToDelete)
-                {
-                    List<IWebElement> allIconsRow = new List<IWebElement>(row.FindElements(By.TagName("i")));
-                    foreach (var icon in allIconsRow)
-                    { 
-                        if(icon.GetAttribute("class") == "remove icon")
-                        {
-                            Driver.TurnOnWait();
-                            icon.Click();
-                            deleteStatus = "";
-                        }
-                        else
-                        {
-                            deleteStatus = "Undefined Error";
-                        }
-                    }
-                }
-                else
-                {
-                    deleteStatus = "The language intented to delete is not in the list";
-                }
-            }*/
+            IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
+            deleteButton.Click();
             return(deleteStatus);
         }
 
         public (String, String) ValidateDeletion(String deleteLanguage)
         {
-            String deletionStatus = "";
+            String deletionStatus = "N";
             String deletionMessage = "";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
+            IWebElement languageTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
             List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
 
             foreach (var row in allLanguageRow)
@@ -375,34 +314,31 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public void GoToSkillTab()
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]")).Click();
         }
                 
         public void EnterNewSkill(String skill, String skillLevel)
         {
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
-            Driver.TurnOnWait();
-
-            IWebElement newLanguage = Driver.driver.FindElement(By.Name("name"));
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div")).Click();
+            TurnOnWait();
+            IWebElement newLanguage = driver.FindElement(By.Name("name"));
             newLanguage.SendKeys(skill);
-
-            SelectElement SelectLanguage = new SelectElement(Driver.driver.FindElement(By.Name("level")));
+            SelectElement SelectLanguage = new SelectElement(driver.FindElement(By.Name("level")));
             SelectLanguage.SelectByText(skillLevel);
-            Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]")).Click();
         }
         
         public (String, String) ValidateNewSkill(string validateSkill, string validateSkillLevel)
         {
-
-            Driver.TurnOnWait();
-            String AddNewSkillStatus = "";
+            TurnOnWait();
+            String AddNewSkillStatus = "N";
             String AddNewSkillMessage = "";
 
-            IWebElement skillTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
+            IWebElement skillTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
             List<IWebElement> allSkillRow = new List<IWebElement>(skillTable.FindElements(By.TagName("tbody")));
 
-            IWebElement LastTableSkill = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            IWebElement LastTableSkillLevel = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
+            IWebElement LastTableSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+            IWebElement LastTableSkillLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
 
             if ((LastTableSkill.Text == validateSkill) && (LastTableSkillLevel.Text == validateSkillLevel))
             {
@@ -411,7 +347,6 @@ namespace MarsQA_1.SpecflowPages.Pages
             }
             else
             {
-                AddNewSkillStatus = "N";
                 foreach (var row in allSkillRow)
                 {
                     var resultCols = row.FindElements(By.TagName("td"));
@@ -437,103 +372,51 @@ namespace MarsQA_1.SpecflowPages.Pages
        
         public void EnterEditSkill(String skillToBeEdited,string editSkill, string editSkillLevel)
         {
-            Driver.TurnOnWait();
-            IWebElement editButton = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
+            TurnOnWait();
+            IWebElement editButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
             editButton.Click();
-
-            /*String editStatus = "";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
-            List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
-            foreach (var row in allLanguageRow)
-            {
-                var resultCols = row.FindElements(By.TagName("td"));
-                if (resultCols[0].Text == skillToBeEdited)
-                {
-                    List<IWebElement> allIconsRow = new List<IWebElement>(row.FindElements(By.TagName("i")));
-                    foreach (var icon in allIconsRow)
-                    {
-                        if (icon.GetAttribute("class") == "outline write icon")
-                        {
-                            editStatus = "";
-                            icon.Click();
-                        }
-                    else
-                    {
-                            editStatus = "Undefined Error";
-                    }
-                    }
-                    }
-                    }*/
-            IWebElement editedSkill = Driver.driver.FindElement(By.Name("name"));
+            IWebElement editedSkill = driver.FindElement(By.Name("name"));
             editedSkill.Clear();
             editedSkill.SendKeys(editSkill);
 
-            SelectElement editedSkilllevel = new SelectElement(Driver.driver.FindElement(By.Name("level")));
+            SelectElement editedSkilllevel = new SelectElement(driver.FindElement(By.Name("level")));
             editedSkilllevel.SelectByText(editSkillLevel);
-            Driver.TurnOnWait();
-            Driver.driver.FindElement(By.XPath("//input[contains(@class,'ui teal button')]")).Click();
-
+            TurnOnWait();
+            driver.FindElement(By.XPath("//input[contains(@class,'ui teal button')]")).Click();
         }
         
         public (String, String) ValidateUpdatedSkill(string editSkill, string editSkillLevel)
         {
-            Driver.TurnOnWait();
+            TurnOnWait();
             String editSkillMessage = "";
             String editSkillStatus = "N";
-            IWebElement skillTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table"));
+            IWebElement skillTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
             List<IWebElement> allSkillRow = new List<IWebElement>(skillTable.FindElements(By.TagName("tbody")));
 
             foreach (var row in allSkillRow)
             {
                 var resultCols = row.FindElements(By.TagName("td"));
-
                 if ((resultCols[0].Text == editSkill) && (resultCols[1].Text == editSkillLevel))
                 {
-                    editSkillStatus = "Y";
+                     editSkillStatus = "Y";
                     editSkillMessage = "Skill Updated successfully";
                     break;
                 }
                 else
                 {
-                    editSkillStatus = "N";
                     editSkillMessage = "Skill Updation failed";
                     break;
                 }
             }
-            return (EditStatus: editSkillMessage, EditMessage: editSkillMessage);
+            return (EditStatus: editSkillStatus, EditMessage: editSkillMessage);
         }
              
         public string DeleteSkill(string skillToBeDeleted)
         {
-            //Driver.TurnOnWait();
             String deleteStatus = "";
-            IWebElement languageTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
-            List<IWebElement> allLanguageRow = new List<IWebElement>(languageTable.FindElements(By.TagName("tbody")));
-            foreach (var row in allLanguageRow)
-            {
-                var resultCols = row.FindElements(By.TagName("td"));
-                if (resultCols[0].Text == skillToBeDeleted)
-                {
-                    List<IWebElement> allIconsRow = new List<IWebElement>(row.FindElements(By.TagName("i")));
-                    foreach (var icon in allIconsRow)
-                    {
-                        if (icon.GetAttribute("class") == "remove icon")
-                        {
-                            Driver.TurnOnWait();
-                            icon.Click();
-                            deleteStatus = "";
-                        }
-                        else
-                        {
-                            deleteStatus = "Undefined Error";
-                        }
-                    }
-                }
-                else
-                {
-                    deleteStatus = "The skill intented to delete is not in the list";
-                }
-            }
+            TurnOnWait();
+            IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
+            deleteButton.Click();
             return (deleteStatus);
         }
 
@@ -541,12 +424,11 @@ namespace MarsQA_1.SpecflowPages.Pages
         {
             String deletionSkillStatus = "N";
             String deletionSkillMessage = "";
-            IWebElement skillTable = Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
+            IWebElement skillTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
             List<IWebElement> allSkillRow = new List<IWebElement>(skillTable.FindElements(By.TagName("tbody")));
             foreach (var row in allSkillRow)
             {
                 var resultCols = row.FindElements(By.TagName("td"));
-                
                 if (resultCols[0].Text != skillToBeDeleted)
                 {
                     deletionSkillStatus = "Y";

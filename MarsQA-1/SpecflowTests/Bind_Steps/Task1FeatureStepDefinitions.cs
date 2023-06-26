@@ -2,7 +2,6 @@ using MarsQA_1.Helpers;
 using MarsQA_1.Pages;
 using MarsQA_1.SpecflowPages.Pages;
 using NUnit.Framework;
-using RazorEngine;
 using System;
 using TechTalk.SpecFlow;
 
@@ -179,7 +178,7 @@ namespace MarsQA_1
         [When(@"I click add new button in language tab")]
         public void WhenIClickAddNewButtonInLanguageTab()
         {
-            if (ProfilePageObj.IsDisplayed() == true)
+            if (ProfilePageObj.ClickAddNewLanguage() == true)
             {
                 ProfilePageObj.AddNewLanguageButton();
             }
@@ -192,7 +191,8 @@ namespace MarsQA_1
         [When(@"I enter the '([^']*)' '([^']*)' to add language")]
         public void WhenIEnterTheToAddLanguage(string language, string level)
         {
-            if (ProfilePageObj.IsDisplayed() == true)
+            /*To check if the add button is displayed for adding the language*/
+            if (ProfilePageObj.ClickAddNewLanguage() == true)
             {
                 ProfilePageObj.EnterNewLanguage(language, level);
             }
@@ -281,7 +281,7 @@ namespace MarsQA_1
         public void WhenIClickDeleteButtonOfTheLanguageIWantToDelete(string deleteLanguage)
         {
             String deleteStatus = ProfilePageObj.DeleteLanguage(deleteLanguage);
-            if (deleteStatus != "")
+            if (deleteStatus == "N")
             {
                 Assert.Fail(deleteStatus);
             }
@@ -291,7 +291,6 @@ namespace MarsQA_1
         public void ThenTheLanguageWasDeletedSuccessfully(string deleteLanguage)
         {
             var deletionStatus = ProfilePageObj.ValidateDeletion(deleteLanguage);
-            Console.WriteLine(deletionStatus);
             if (deletionStatus.Item1 == "N")
             {
                 Assert.Fail(deletionStatus.Item2);
@@ -361,6 +360,7 @@ namespace MarsQA_1
         public void ThenTheSkillWasSuccessfullyUpdatedWith(string editSkill, string editSkillLevel)
         {
             var editSkillStatus = ProfilePageObj.ValidateUpdatedSkill(editSkill, editSkillLevel);
+            Console.WriteLine(editSkillStatus);
             if (editSkillStatus.Item1 == "N")
             {
                 Assert.Fail(editSkillStatus.Item2);
@@ -371,7 +371,7 @@ namespace MarsQA_1
         public void WhenIClickDeleteButtonOfTheSkillIWantToDelete(string skillToBeDeleted)
         {
             String deleteStatus = ProfilePageObj.DeleteSkill(skillToBeDeleted);
-            if (deleteStatus != "")
+            if (deleteStatus == "N")
             {
                 Assert.Fail(deleteStatus);
             }

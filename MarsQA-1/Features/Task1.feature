@@ -22,8 +22,9 @@ When I click on the edit button near the description
 And I enter the '<descriptionWithMoreCharacters>'
 Then I could see the partial text of the description with showing any error message
 Examples:
-|descriptionWithMoreCharacters							|
-|When deciding where to put some common context, the key question should be “is this important for the purpose of the scenario, or just for the process of testing?”. This is the same question we explored in the challenge How to fix a chain of dependent scenarios? (see the section “Write set-up in a declarative way”).Tags and hooks are best to use for sharing context that’s not really important for the purpose of the test, but it may be important for how the test gets executed. For example, the actual username for the logged in user is not important for ratings, we just need to have a user and|
+| descriptionWithMoreCharacters |
+#|When deciding where to put some common context, the key question should be “is this important for the purpose of the scenario, or just for the process of testing?”. This is the same question we explored in the challenge How to fix a chain of dependent scenarios? (see the section “Write set-up in a declarative way”).Tags and hooks are best to use for sharing context that’s not really important for the purpose of the test, but it may be important for how the test gets executed. For example, the actual username for the logged in user is not important for ratings, we just need to have a user and|
+|When deciding where to put		|
 
 @ignore @negativeTestcase
 Scenario: 3 Seller saves description with empty values
@@ -245,3 +246,4 @@ Then The certificate was deleted successfully
 Examples:	
 |deleteCertificate	|
 |ISTQB-Agile	    |
+
